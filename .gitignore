@@ -2,6 +2,9 @@
 __pycache__/
 *.pyc
 .pytest_cache/
+dist/
+build/
+*.egg-info/
 animated_output*.svg
-img2svg/node_modules/
-img2svg/windfoil-paper/
+src/pixellens/img2svg/node_modules/
+src/pixellens/img2svg/windfoil-paper/

@@ -1,0 +1,54 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pixellens"
+version = "0.1.0"
+description = "Local-first CLI for converting animations/icons/3D images to SVG/AVIF/WebP with pixel, layout, and SSIM diffing."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+authors = [
+    { name = "Abolfazl Moeini" },
+]
+keywords = ["svg", "avif", "webp", "lottie", "gif", "ssim", "image-diff", "visual-regression", "iconkat"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: MacOS",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Multimedia :: Graphics :: Graphics Conversion",
+    "Topic :: Software Development :: Testing",
+]
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/abolfazl-moeini/pixellens"
+Repository = "https://github.com/abolfazl-moeini/pixellens"
+Issues = "https://github.com/abolfazl-moeini/pixellens/issues"
+
+[project.scripts]
+pixellens = "pixellens.cli:main"
+iconkat = "pixellens.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+pixellens = ["img2svg/*.js", "img2svg/package.json"]
+
+[tool.setuptools.exclude-package-data]
+pixellens = ["img2svg/node_modules/*", "img2svg/windfoil-paper/*"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

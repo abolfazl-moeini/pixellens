@@ -31,11 +31,21 @@ python3 pixellens.py compare before.png after.png --common-area --tolerance 8 --
 
 ---
 
+## Installation
+
+```bash
+pip install pixellens
+# or run without installing globally:
+uvx pixellens --help
+```
+
+> **Note:** Installing `pixellens` provides both `pixellens` and `iconkat` CLI commands.
+
 ## Prerequisites
 
 - **Python 3.10+**
 - **ImageMagick** (`brew install imagemagick`)
-- **Node.js >= 22** (for VTracer: `cd img2svg && npm install`)
+- **Node.js >= 22** (optional, for VTracer: `cd src/pixellens/img2svg && npm install`)
 - **Windfoil (optional, macOS GPU 3D→SVG)**:
   ```bash
   git clone --depth 1 https://github.com/texel-org/windfoil-paper.git /tmp/windfoil-paper
@@ -81,11 +91,14 @@ Exit codes: `0` = passed (`layout_similarity >= min` and `perceptual_similarity 
 
 ```text
 pixellens/
-├── pixellens.py              # Main PixelLens CLI entry point
-├── iconkat.py                # Backward-compatible CLI core
-├── compare/                  # Pixel, layout, and SSIM comparison engine
-├── json2svg/                 # Lottie JSON -> Animated SVG
-├── gif2svg/                  # GIF/APNG/WebP -> Pure CSS Animated SVG
-├── img2svg/                  # VTracer, Windfoil, and Python SVG engines
+├── pyproject.toml            # PyPI packaging & console scripts (pixellens, iconkat)
+├── pixellens.py              # Local PixelLens CLI launcher
+├── iconkat.py                # Local backward-compatible CLI launcher
+├── src/pixellens/
+│   ├── cli.py                # Core CLI & auto-detection router
+│   ├── compare/              # Pixel, layout, and SSIM comparison engine
+│   ├── json2svg/             # Lottie JSON -> Animated SVG
+│   ├── gif2svg/              # GIF/APNG/WebP -> Pure CSS Animated SVG
+│   └── img2svg/              # VTracer, Windfoil, and Python SVG engines
 └── tests/                    # Unit & regression tests (pytest)
 ```

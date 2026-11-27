@@ -6,13 +6,17 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
-from compare.pixels import (
+_SRC = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "src"))
+if not sys.path or sys.path[0] != _SRC:
+    sys.path.insert(0, _SRC)
+
+from pixellens.compare.pixels import (
     _crop,
     _downscale_for_perceptual,
     compare_images,
     compare_main,
 )
-import iconkat
+import pixellens.cli as iconkat
 
 
 def rgba(width: int, height: int, color: tuple[int, int, int, int]) -> bytes:
@@ -23,7 +27,7 @@ class CompareTests(unittest.TestCase):
     def images(self, mapping):
         def load(path, magick=None):
             return mapping[path]
-        return patch("compare.pixels.load_rgba", side_effect=load)
+        return patch("pixellens.compare.pixels.load_rgba", side_effect=load)
 
     def test_identical_images_pass_and_report_zero_diff(self):
         image = (2, 2, rgba(2, 2, (12, 80, 190, 255)))
