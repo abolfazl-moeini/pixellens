@@ -1,0 +1,9 @@
+{
+  "name": "iconkat-img2svg",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Fast raster-to-SVG vectorizer powered by VisionCortex VTracer",
+  "dependencies": {
+    "@neplex/vectorizer": "^0.0.5"
+  }
+}
