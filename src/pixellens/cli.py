@@ -257,6 +257,9 @@ def main():
     if len(sys.argv) > 1 and sys.argv[1] == "compare":
         from pixellens.compare.pixels import compare_main
         sys.exit(compare_main(sys.argv[2:]))
+    if len(sys.argv) > 1 and sys.argv[1] == "audit":
+        from pixellens.audit.assets import audit_main
+        sys.exit(audit_main(sys.argv[2:]))
     parser = argparse.ArgumentParser(
         description="iconkat / PixelLens unified CLI: auto-detect Lottie, Animated GIF/APNG, 2D icon, or 3D image and build optimal outputs, or run 'compare'."
     )

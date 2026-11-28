@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pixellens"
-version = "0.1.0"
+version = "0.2.0"
 description = "Local-first CLI for converting animations/icons/3D images to SVG/AVIF/WebP with pixel, layout, and SSIM diffing."
 readme = "README.md"
 license = { text = "MIT" }
